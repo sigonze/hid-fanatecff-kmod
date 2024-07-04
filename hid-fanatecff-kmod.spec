@@ -1,15 +1,15 @@
-# Build only the akmod package and no kernel module packages:
-%define buildforkernels akmod
-
 %if 0%{?fedora}
 %global debug_package %{nil}
 %endif
 
-%global forgeurl https://github.com/gotzl/hid-fanatecff
+# Build only the akmod package and no kernel module packages:
+%define buildforkernels akmod
+
+%global forgeurl https://github.com/gotzl/%{srcname}
 %global commit 124372964d81ab71b4dc54858c746f1fe3621dbe
 %forgemeta
 
-Name:       hid-fanatecff
+Name:       %{srcname}-kmod
 Version:    1.0
 Release:    1%{?dist}
 Summary:    Kernel module for Fanatec devices
@@ -32,6 +32,8 @@ This package provides a kernel module for FANATEC driving wheels.
 %prep
 # error out if there was something wrong with kmodtool
 %{?kmodtool_check}
+# Print kmodtool output for debugging purposes
+%{expand:%(kmodtool --target %{_target_cpu} --kmodname %{name} %{?buildforkernels:--%{buildforkernels}} %{?kernels:--for-kernels "%{?kernels}"} 2>/dev/null) }
 
 %forgeautosetup
 
