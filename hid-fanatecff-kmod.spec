@@ -45,7 +45,7 @@ done
 %build
 for kernel_version in %{?kernel_versions}; do
     pushd %{_builddir}/_kmod_build_${kernel_version%%___*}
-    make KVERSION=$(basename ${kernel_version##*___})
+    make %{?_smp_mflags} KVERSION=$(basename ${kernel_version##*___})
     popd
 done
 
