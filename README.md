@@ -35,3 +35,7 @@ $ rpm -qp --requires ~/rpmbuild/RPMS/x86_64/*.rpm
 $ rpm -qp --provides ~/rpmbuild/RPMS/x86_64/*.rpm
 ```
 
+Manual installation:
+```
+sudo dnf install ~/rpmbuild/RPMS/x86_64/*.rpm
+```

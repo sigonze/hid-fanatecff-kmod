@@ -35,7 +35,7 @@ install -d %{buildroot}%{_udevrulesdir}
 install -m 0644 %{_builddir}/%{topdir}/fanatec.rules %{buildroot}%{_udevrulesdir}/99-fanatec.rules
 
 %files
-%{_udevrulesdir}/99-fanatec.rules
+/%{_udevrulesdir}/99-fanatec.rules
 
 %post
 # Reload udev rules after installation
