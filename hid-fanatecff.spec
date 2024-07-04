@@ -35,7 +35,7 @@ This package provides a driver for FANATEC driving wheels.
 
 
 %install
-install -d %{buildroot}%{_udevrulesdir}
+install -d %{buildroot}%{udev_rules_dir}
 install -m 0644 %{_builddir}/%{topdir}/fanatec.rules %{buildroot}%{udev_rules_dir}/99-fanatec.rules
 
 %files
