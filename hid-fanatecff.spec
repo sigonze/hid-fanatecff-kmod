@@ -6,6 +6,8 @@
 %global commit 124372964d81ab71b4dc54858c746f1fe3621dbe
 %forgemeta
 
+%define udev_rules_dir /etc/udev/rules.d
+
 Name:       hid-fanatecff
 Version:    1.0
 Release:    1%{?dist}
@@ -34,10 +36,10 @@ This package provides a driver for FANATEC driving wheels.
 
 %install
 install -d %{buildroot}%{_udevrulesdir}
-install -m 0644 %{_builddir}/%{topdir}/fanatec.rules %{buildroot}%{_udevrulesdir}/99-fanatec.rules
+install -m 0644 %{_builddir}/%{topdir}/fanatec.rules %{buildroot}%{udev_rules_dir}/99-fanatec.rules
 
 %files
-%{_udevrulesdir}/99-fanatec.rules
+%{udev_rules_dir}/99-fanatec.rules
 
 %post
 # Reload udev rules after installation
