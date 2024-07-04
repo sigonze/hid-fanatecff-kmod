@@ -5,6 +5,14 @@ Spec files for the kernel module hid-fanatecff [gotzl/hid-fanatecff](https://git
 |---------------|:------------------------|
 
 
+## Copr Build status
+
+Package | Build Status
+------- | ------------
+hid-fanatecff | [![badge](https://copr.fedorainfracloud.org/coprs/sigonze/hid-fanatecff-kmod/package/hid-fanatecff/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/sigonze/hid-fanatecff-kmod/package/hid-fanatecff/)
+hid-fanatecff-kmod | [![badge](https://copr.fedorainfracloud.org/coprs/sigonze/hid-fanatecff-kmod/package/hid-fanatecff-kmod/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/sigonze/hid-fanatecff-kmod/package/hid-fanatecff-kmod/)
+
+
 ### Useful commands
 
 To test rpm generation:
