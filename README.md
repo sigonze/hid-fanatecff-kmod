@@ -1,22 +1,23 @@
 # hid-fanatecff-kmod
 
-| :exclamation: | Still under development |
-|---------------|:------------------------|
+:exclamation: | Still under development
+------------- | -----------------------
 
 Spec files for the kernel module hid-fanatecff [gotzl/hid-fanatecff](https://github.com/gotzl/hid-fanatecff). 
+Add Linux kernel driver for FANATEC devices.
 
 ## Installation
 
-dnf (recommended)
+dnf
 ```
 sudo dnf copr enable sigonze/hid-fanatecff-kmod
 sudo dnf install hid-fanatecff
 ```
 
-rpm-ostree (not tested yet)
+:exclamation: not working rpm-ostree (needs to be adapted)
 ```
-$ sudo wget "https://copr.fedorainfracloud.org/coprs/sigonze/hid-fanatecff-kmod/repo/fedora-$(rpm -E %fedora)/sigonze-hid-fanatecff-fedora-$(rpm -E %fedora).repo" -O /etc/yum.repos.d/_copr_sigonze-hid-fanatecff-kmod.repo
-$ sudo rpm-ostree install hid-fanatecff
+sudo wget "https://copr.fedorainfracloud.org/coprs/sigonze/hid-fanatecff-kmod/repo/fedora-$(rpm -E %fedora)/sigonze-hid-fanatecff-fedora-$(rpm -E %fedora).repo" -O /etc/yum.repos.d/_copr_sigonze-hid-fanatecff-kmod.repo
+sudo rpm-ostree install hid-fanatecff
 ```
 
 ## Copr Build status
@@ -28,6 +29,13 @@ hid-fanatecff-kmod | [![badge](https://copr.fedorainfracloud.org/coprs/sigonze/h
 
 
 ## Useful commands for testing
+
+How to test
+```
+mkdir -p  ~/rpmbuild/SOURCES
+rpmbuild --undefine '_disable_source_fetch' --define "kernels $(uname -r)" -bs *.spec
+mock --enable-network -r fedora-rawhide-x86_64 --rebuild --resultdir=/tmp/mockbuild/ ~/rpmbuild/SRPMS/hid-fanatecff-*.src.rpm
+```
 
 Generate RPM files:
 ```
