@@ -14,7 +14,7 @@ sudo dnf copr enable sigonze/hid-fanatecff-kmod
 sudo dnf install hid-fanatecff
 ```
 
-:exclamation: not working rpm-ostree (needs to be adapted)
+:exclamation: rpm-ostree (NOT WORKING needs to be adapted)
 ```
 sudo wget "https://copr.fedorainfracloud.org/coprs/sigonze/hid-fanatecff-kmod/repo/fedora-$(rpm -E %fedora)/sigonze-hid-fanatecff-fedora-$(rpm -E %fedora).repo" -O /etc/yum.repos.d/_copr_sigonze-hid-fanatecff-kmod.repo
 sudo rpm-ostree install hid-fanatecff
@@ -32,7 +32,7 @@ hid-fanatecff-kmod | [![badge](https://copr.fedorainfracloud.org/coprs/sigonze/h
 
 How to test
 ```
-mkdir -p  ~/rpmbuild/SOURCES
+mkdir -p ~/rpmbuild/SOURCES
 rpmbuild --undefine '_disable_source_fetch' --define "kernels $(uname -r)" -bs *.spec
 mock --enable-network -r fedora-rawhide-x86_64 --rebuild --resultdir=/tmp/mockbuild/ ~/rpmbuild/SRPMS/hid-fanatecff-*.src.rpm
 ```
