@@ -3,7 +3,7 @@
 %endif
 
 %global forgeurl https://github.com/gotzl/hid-fanatecff
-%global commit 124372964d81ab71b4dc54858c746f1fe3621dbe
+%global tag 0.1.1
 %forgemeta
 
 Name:       hid-fanatecff
