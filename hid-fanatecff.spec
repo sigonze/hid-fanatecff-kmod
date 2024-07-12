@@ -23,6 +23,7 @@ Requires: linuxconsoletools
 
 BuildRequires: pkgconfig(udev)
 
+Provides: %{name}-kmod-common = %{version}
 Requires: %{name}-kmod >= %{version}
 
 
