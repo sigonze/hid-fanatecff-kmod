@@ -5,12 +5,14 @@
 # Build only the akmod package and no kernel module packages:
 %define buildforkernels akmod
 
-%global forgeurl https://github.com/gotzl/hid-fanatecff
+%define kmodname hid-fanatecff
+
+%global forgeurl https://github.com/gotzl/%{kmodname}
 %global tag 0.1.1
 %forgemeta
 
-Name:       hid-fanatecff-kmod
-Version:    1.0.1
+Name:       %{kmodname}-kmod
+Version:    %{tag}
 Release:    1%{?dist}
 Summary:    Kernel module for Fanatec devices
 Group:      System Environment/Kernel
@@ -69,6 +71,8 @@ akmod_remove
 rm -rf %{buildroot}
 
 %changelog
+* Fri Jul 12 2024 Sigonze <sigonze@proton.me> 0.1.1-1
+- Align version with source repo
 * Wed Jul 10 2024 Sigonze <sigonze@proton.me> 1.0.1
 - Update to 1.0.1
 * Wed Jul 3 2024 Sigonze <sigonze@proton.me> 1.0

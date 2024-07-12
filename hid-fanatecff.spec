@@ -2,14 +2,16 @@
 %global debug_package %{nil}
 %endif
 
-%global forgeurl https://github.com/gotzl/hid-fanatecff
+%define kmodname hid-fanatecff
+
+%global forgeurl https://github.com/gotzl/%{kmodname}
 %global tag 0.1.1
 %forgemeta
 
-Name:       hid-fanatecff
-Version:    1.0.1
+Name:       %{kmodname}
+Version:    %{tag}
 Release:    1%{?dist}
-Summary:    Kernel module for Fanatec devices
+Summary:    udev rules for Fanatec devices
 Group:      System Environment/Kernel
 License:    GPL
 
@@ -21,12 +23,11 @@ Requires: linuxconsoletools
 
 BuildRequires: pkgconfig(udev)
 
-Provides: %{name}-kmod-common = %{version}
 Requires: %{name}-kmod >= %{version}
 
 
 %description
-This package provides a driver for FANATEC driving wheels. 
+This package provides udev rules for FANATEC devices 
 
 %prep
 %forgeautosetup
@@ -55,6 +56,8 @@ fi
 rm -rf %{buildroot}
 
 %changelog
+* Fri Jul 12 2024 Sigonze <sigonze@proton.me> 0.1.1-1
+- Align version with source repo
 * Wed Jul 10 2024 Sigonze <sigonze@proton.me> 1.0.1
 - Update to 1.0.1
 * Wed Jul 3 2024 Sigonze <sigonze@proton.me> 1.0
